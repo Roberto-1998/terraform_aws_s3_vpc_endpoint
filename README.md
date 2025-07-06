@@ -80,7 +80,7 @@ terraform apply
 ssh -i bastion_private_key.pem ec2-user@<bastion-host-public-ip>
 ```
 
-### 3. **SSH into the endpoint host (in the private subnet)**
+### 3. **SSH into the endpoint host (in the private subnet) from the Bastion Host**
 
 ```bash
 ssh -i bastion_private_key.pem ec2-user@<endpoint-host-private-ip>
