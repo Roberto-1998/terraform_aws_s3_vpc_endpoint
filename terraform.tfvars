@@ -1,1 +1,11 @@
-AWS_REGION = "us-east-1"
+AWS_REGION          = "us-east-1"
+EC2_TYPE            = "t2.micro"
+SSH_USER            = "ec2-user"
+KEY_PAIR_NAME       = "bastion_private_key.pem"
+VPC_NAME            = "MyVPC"
+VPC_BLOCK           = "192.168.0.0/26"
+VPC_AZs             = ["us-east-1a"]
+VPC_PUBLIC_SUBNETS  = ["192.168.0.0/27"]
+VPC_PRIVATE_SUBNETS = ["192.168.0.32/27"]
+BASTION_OPEN_PORTS  = ["22", "80", "443"]
+ENDPOINT_OPEN_PORTS = ["22"]
