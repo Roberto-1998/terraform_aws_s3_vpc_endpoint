@@ -1,5 +1,5 @@
 
-# terraform_aws_s3_vpc_endpoint 🚀
+# Terraform AWS VPC S3 Endpoint
 
 This Terraform project provisions a basic infrastructure on AWS, including an EC2 instance inside a private VPC with access to Amazon S3 through a **Gateway VPC Endpoint** — avoiding the need for NAT or Internet Gateway.
 
