@@ -14,9 +14,14 @@ output "vpc_endpoint_id" {
   value = module.vpc_endpoint_s3.vpc_endpoint_id
 }
 
-output "ami-instances" {
-  value = {
-    Name = data.aws_ami.amazon_linux.name
-    Id   = data.aws_ami.amazon_linux.id
-  }
+output "ami-instance_id" {
+  value = data.aws_ami.amazon_linux.id
+}
+
+output "bastion_host_public_ip" {
+  value = aws_instance.bastion-host.public_ip
+}
+
+output "endpoint_host_private_ip" {
+  value = aws_instance.endpoint-instance.private_ip
 }
