@@ -10,6 +10,6 @@ data "aws_ami" "amazon_linux" {
     name   = "virtualization-type"
     values = ["hvm"]
   }
-  
+
   owners = ["amazon"]
 }
