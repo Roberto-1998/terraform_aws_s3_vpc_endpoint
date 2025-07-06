@@ -20,7 +20,6 @@ resource "aws_instance" "bastion-host" {
   provisioner "remote-exec" {
     inline = [
       "chmod 400 bastion_private_key.pem",
-      "ssh -i bastion_private_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ec2-user@${aws_instance.endpoint-instance.private_ip}"
     ]
   }
 
@@ -38,6 +37,7 @@ resource "aws_instance" "endpoint-instance" {
   key_name               = aws_key_pair.generated_key.key_name
   subnet_id              = module.vpc.private_subnets[0]
   vpc_security_group_ids = [aws_security_group.endpoint-SG.id]
+  iam_instance_profile = aws_iam_instance_profile.endpoint_profile.name
 
   tags = {
     Name = "endpoint-instance"
