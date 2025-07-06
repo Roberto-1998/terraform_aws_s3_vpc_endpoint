@@ -19,16 +19,14 @@ module "vpc" {
 }
 
 
-resource "aws_vpc_endpoint" "s3_endpoint" {
-  vpc_id            = module.vpc.vpc_id
-  service_name      = "com.amazonaws.${var.AWS_REGION}.s3"
-  vpc_endpoint_type = "Gateway"
-
-  route_table_ids = [
-    module.vpc.private_route_table_ids[0]
-  ]
-
+module "vpc_endpoint_s3" {
+  source          = "./modules/vpc_endpoint_s3"
+  vpc_id          = module.vpc.vpc_id
+  region          = var.AWS_REGION
+  route_table_ids = module.vpc.private_route_table_ids
   tags = {
-    Name = "s3-endpoint"
+    Name        = "s3-endpoint"
+    Environment = "dev"
   }
+
 }
